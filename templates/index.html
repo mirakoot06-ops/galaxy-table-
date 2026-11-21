@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Times Table Galaxy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bungee&family=Nunito:wght@600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../static/style.css">
+</head>
+<body>
+<div class="hplanet" aria-hidden="true"></div>
+<div class="catchlayer" id="catch"></div>
+<div class="sky" id="sky"><span class="fly">🛰️</span><span class="fly b">🧑‍🚀</span><div class="shoot"></div><div class="shoot b"></div></div>
+<main>
+  <div class="bar">
+    <h1>Times Table Galaxy</h1>
+    <div class="chips">
+      <div class="chip" id="cDays"></div>
+      <div class="chip" id="cStars">⭐ 0</div>
+      <div class="chip" id="cStreak">🔥 0</div>
+      <button class="chip" id="mute" aria-label="Sound on or off">🔊</button>
+      <button class="chip" id="voiceBtn" aria-label="Voice settings">🗣️</button>
+      <div class="chip" id="cRank">🧑‍🚀 Cadet</div>
+    </div>
+  </div>
+
+  <div class="tabs" role="group" aria-label="Sections">
+    <button class="tab" data-go="map" aria-pressed="true">🚀 Missions</button>
+    <button class="tab" data-go="spin" aria-pressed="false">🎡 Spin</button>
+    <button class="tab" data-go="progress" aria-pressed="false">📊 Progress</button>
+    <button class="tab" data-go="ship" aria-pressed="false">🛠️ Ship</button>
+    <button class="tab" data-go="shop" aria-pressed="false">🛍️ Shop</button>
+    <button class="tab" data-go="more" aria-pressed="false">⋯ More</button>
+  </div>
+
+  <section class="view on" id="home" aria-label="Start">
+    <div class="hero">
+      <button class="chip lang" id="langBtn"></button>
+      <button class="chip lang" id="voiceBtn2" style="top:44px" aria-label="Voice settings">🗣️</button>
+      <div class="chip cc" id="cc">⭐ 0</div>
+      <button class="deco" style="left:3%;top:2%;font-size:60px" aria-label="Planet">🪐</button><button class="deco" style="right:4%;top:14%;animation-delay:-1s" aria-label="UFO">🛸</button>
+      <button class="deco" style="left:7%;top:58%;animation-delay:-2s" aria-label="Comet">☄️</button><button class="deco" style="right:7%;top:54%;animation-delay:-.5s;font-size:56px" aria-label="Moon">🌙</button>
+      <div class="orbit"><span>🪐</span></div>
+      <button class="bigrocket" id="bigR" aria-label="Launch the rocket">🚀</button>
+      <p class="tag">Blast off into a galaxy of times tables!</p>
+      <div class="zrow"><button class="zh" id="zh" aria-label="Zorp">👽</button><div class="zb" id="zb"></div></div>
+      <div class="panel">
+        <label for="nm">What’s your name, space explorer?</label>
+        <input id="nm" maxlength="14" placeholder="Type your name" autocomplete="off">
+        <div class="idcard" id="idc"></div>
+        <p class="hint" id="nmHint"></p>
+        <button class="btn go" id="go">Next ➜</button>
+      </div>
+      <div id="crew"></div>
+    </div>
+  </section>
+
+  <section class="view" id="creator" aria-label="Create your explorer">
+    <button class="quit" id="cBack">← Back</button>
+    <h2 class="chead">Create your explorer!</h2>
+    <div class="cwrap">
+      <div class="cprev"><div class="cstage" id="cStage"></div><div class="cname" id="cName"></div><button class="btn alt" id="cRand">🎲 Surprise me</button></div>
+      <div class="copts">
+        <h4>I am a</h4><div class="ro" id="oBody"></div>
+        <h4>Skin</h4><div class="ro" id="oSkin"></div>
+        <h4>Hair style</h4><div class="ro" id="oHair"></div>
+        <h4>Hair color</h4><div class="ro" id="oHairC"></div>
+        <h4>Space suit</h4><div class="ro" id="oSuit"></div><p class="mini">🔒 Win or buy special suits in the Shop!</p>
+        <h4>Space helmet</h4><div class="ro" id="oHelm"></div>
+        <h4>Space buddy</h4><div class="ro" id="oPet"></div>
+      </div>
+    </div>
+    <div class="row"><button class="btn go" id="cDone">Blast off! 🚀</button></div>
+  </section>
+
+  <section class="view" id="map" aria-label="Choose a planet">
+    <p id="hello" style="margin:0 0 6px;color:var(--dim)"></p>
+    <div class="chip" id="shipChip" style="display:block;margin-bottom:10px"></div>
+    <div class="mrow"><button class="btn" id="speedBtn"></button><button class="btn alt" id="dailyBtn"></button></div>
+    <div class="deckwrap"><div class="dots" id="dots"></div><button class="arr l" id="arrL" aria-label="Previous planet">‹</button><button class="arr r" id="arrR" aria-label="Next planet">›</button><div class="path" id="path"></div></div>
+  </section>
+
+  <section class="view" id="game" aria-live="polite">
+    <div class="wx gwx" id="gwx" aria-hidden="true"></div>
+    <div class="hud">
+      <button class="quit" id="quit">← Back to map</button>
+      <div class="chip" id="gLabel"></div>
+      <div class="chip" id="gAux"></div>
+      <div class="chip" id="gStreak">🔥 0</div>
+      <div class="chip" id="gCoin">🪙 0</div>
+    </div>
+    <div class="pus"><button class="pu" id="puF">🔍 50/50</button><button class="pu" id="puZ">❄️ Freeze</button></div>
+    <div class="track"><div class="fill" id="fill"></div><div class="rocket" id="rocket">🚀</div></div>
+    <div class="card">
+      <div class="guard gg" id="guard" aria-hidden="true"></div>
+      <div class="mascot" id="mascot"><span id="face">👽</span><span class="hat" id="hat"></span></div>
+      <div class="q" id="q"></div>
+      <div class="tb" id="tb"><i id="tbi"></i></div>
+      <div class="opts" id="opts"></div>
+      <div class="msg" id="msg"></div>
+      <div class="fuel" id="fuel" aria-hidden="true"></div>
+    </div>
+  </section>
+
+  <section class="view" id="result">
+    <div class="card">
+      <div style="font-size:70px" id="rEmoji">🌟</div>
+      <div class="big" id="rTitle"></div>
+      <div class="stars" style="font-size:44px" id="rStars"></div>
+      <p id="rText"></p>
+      <div id="lesson"></div>
+      <div class="row">
+        <button class="btn" id="rNext">Next planet</button>
+        <button class="btn alt" id="rAgain">Fly again</button>
+        <button class="btn alt" id="rMap">Map</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="view" id="tricks" aria-label="Trick cards"><p style="margin:0 0 10px;color:var(--dim)">Learn a trick, then practice with no timer and no pressure.</p><div class="tricks" id="trickGrid"></div></section>
+
+  <section class="view" id="spin" aria-label="Spin the wheel">
+    <p id="spInfo" class="chip" style="display:block"></p>
+    <div class="pv" id="pvSpin"></div>
+    <div class="wheelbox"><div class="ptr">🔻</div><div class="wheel" id="wheel"></div></div>
+    <div class="row"><button class="btn" id="spinGo">Spin!</button><button class="btn alt" id="spinBuy">Buy a spin 🪙25</button></div>
+    <p id="spRes" style="text-align:center;font-weight:800;min-height:28px"></p>
+    <h3 style="margin:6px 0">My pets (they stand next to your explorer)</h3><div class="shop" id="chars"></div>
+  </section>
+
+  <section class="view" id="progress" aria-label="Progress"><div id="progBody"></div></section>
+  <section class="view" id="more" aria-label="More"><h2 class="ph">⋯ More</h2><div class="moregrid" id="moreGrid"></div></section>
+  <section class="view" id="teacher" aria-label="Teacher page"><div id="teachBody"></div></section>
+
+  <section class="view" id="ship" aria-label="My ship"><div id="shipBody"></div></section>
+  <section class="view" id="settings" aria-label="Settings"><div id="setBody"></div></section>
+  <section class="view" id="race" aria-label="Two player race"><div id="raceBody"></div></section>
+  <div id="meteors" aria-hidden="true"></div>
+
+  <section class="view" id="shop" aria-label="Shop">
+    <div class="pv" id="pvShop"></div>
+    <div class="row" style="margin:0 0 12px"><button class="btn alt" id="editLook">✏️ Customize my explorer</button></div>
+    <p id="coins" class="chip" style="display:block;margin:0 0 12px"></p>
+    <h3 style="margin:6px 0">Space suits</h3><div class="shop" id="shopS"></div>
+    <h3 style="margin:6px 0">Rocket skins</h3><div class="shop" id="shopR"></div>
+    <h3 style="margin:6px 0">Hats</h3><div class="shop" id="shopH"></div>
+    <h3 style="margin:6px 0">Glasses</h3><div class="shop" id="shopG"></div>
+  </section>
+
+  <section class="view" id="badges" aria-label="Badges">
+    <div class="badges" id="badgeGrid"></div>
+  </section>
+</main>
+<div class="win" id="win" role="dialog" aria-label="Great job"><div class="card"><h2 class="winh" id="winH"></h2><div class="stage"><div class="rays"></div><div class="pc" id="winC"></div></div><div class="bubble" id="winT"></div><p id="winX" style="font-weight:800"></p><button class="btn" id="winOk">Yay!</button></div></div>
+<div class="story" id="story"><div class="ground"></div><div class="props" id="sProps"></div>
+  <div class="wcard"><h2 id="sTitle"></h2><div class="bubble" id="sText"></div>
+    <div class="duo"><span id="sMe"></span><span class="zorp">👽</span></div>
+    <div class="row"><button class="btn" id="sGo">Let’s go!</button><button class="btn alt" id="sBack">Back</button></div></div></div>
+<div class="count" id="count" aria-live="assertive"><b id="cnum"></b></div>
+<div class="vbox" id="vbox" role="dialog" aria-label="Voice settings"><div class="card">
+  <h3 class="lh" style="margin-top:0">🗣️ Character voice</h3>
+  <div class="vrow"><label id="vTypeL">Voice type</label><div class="ro" id="vType"></div></div>
+  <div class="vrow"><label for="vSel">Device voice</label><select id="vSel"></select></div>
+  <div class="vrow"><label>Style</label><div class="ro" id="vPre"></div></div>
+  <div class="vrow"><label for="vPitch">Pitch</label><input type="range" id="vPitch" min="0.5" max="2" step="0.05"></div>
+  <div class="vrow"><label for="vRate">Speed</label><input type="range" id="vRate" min="0.6" max="1.4" step="0.05"></div>
+  <div class="row"><button class="btn alt" id="vTest">▶ Test voice</button><button class="btn" id="vOk">Done</button></div>
+  <p class="mini">Voices come from your device. Different devices have different voices.</p>
+</div></div>
+<div id="combo" aria-hidden="true"></div><div id="banner" aria-hidden="true"></div>
+<div class="tut" id="tut"><div class="card"><div class="tdemo" id="tDemo"></div><h2 id="tTitle"></h2><ol id="tSteps"></ol><button class="btn" id="tGo"></button></div></div>
+<div class="cert" id="cert"><div class="certbox"><div class="paper" id="paper"></div><div class="row noprint"><button class="btn" id="certPrint">🖨️ Print</button><button class="btn alt" id="certClose">Close</button></div></div></div>
+<div class="stand" id="stand"></div>
+<div class="pop" id="pop"></div>
+<div class="toast" id="toast" role="status"></div>
+
+<script src="../static/game.js"></script>
+</body>
+</html>
